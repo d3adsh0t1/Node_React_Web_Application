@@ -21,6 +21,10 @@ const Book = mongoose.model('Book',{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref :'User'
+    },
+    url:{
+        required:true,
+        type: String
     }
 })
 
