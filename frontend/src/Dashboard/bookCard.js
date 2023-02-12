@@ -3,7 +3,7 @@ import { Button, Card, CardBody, CardFooter, Image, Stack, Heading, Text } from 
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-// Card Edit and Delete button
+// Card Edit and Delete button 
 function BookCard({name,author,genre,url,id,onDeleteFunction}) {
   const onEdit = () => {
     navigate(`/editcard/${id}`);
