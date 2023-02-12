@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
-import LoginPage from "./loginPage";
-import Dashboard from "./dashboard";
+import "./css/index.css";
+import LoginPage from "./login/loginPage";
+import Dashboard from "./Dashboard/dashboard";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import EditCard from "./editCard";
-import AddCard from "./addCard";
+import EditCard from "./Dashboard/editCard";
+import AddCard from "./Dashboard/addCard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import CardDetails from "./cardDetails";
+import CardDetails from "../components/cardDetails";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 
+// Edit Button functionality
 const EditCard = () => {
   const [bookDetails, setBookDetails] = useState([]);
   let {id} = useParams();

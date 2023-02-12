@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Header from "./header";
+import Header from "../components/header";
 import BookCard from "./bookCard";
 import axios from "axios";
 
+// Dashboard Page
 const Dashboard = () => {
   const [bookDetails, setBookDetails] = useState([]);
   useEffect(() => {

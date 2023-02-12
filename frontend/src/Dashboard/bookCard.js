@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Card, CardBody, CardFooter, Image, Stack, Heading, Text } from '@chakra-ui/react';
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-
+// Card Edit and Delete button
 function BookCard({name,author,genre,url,id,onDeleteFunction}) {
   const onEdit = () => {
     navigate(`/editcard/${id}`);
@@ -41,10 +41,10 @@ function BookCard({name,author,genre,url,id,onDeleteFunction}) {
 
   <Stack>
     <CardBody>
-      <Heading size='lg'>{name}</Heading>
-      <Heading size='md'>{author}</Heading>
+      <Heading fontWeight="semibold" margin="2" size='lg'>{name}</Heading>
+      <Heading fontStyle="italic" margin="3" size='md'>{author}</Heading>
 
-      <Text py='2'>
+      <Text fontWeight="medium" color="HighlightText" margin="4" py='2'>
         {genre}
       </Text>
     </CardBody>

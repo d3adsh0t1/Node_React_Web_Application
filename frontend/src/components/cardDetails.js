@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import "./cardDetails.css";
+import "../css/cardDetails.css";
 import { Input, FormLabel, FormControl, Button } from '@chakra-ui/react';
 import { useNavigate } from "react-router";
 
+// Book Card Details
 const CardDetails = ({type,name,author,genre,url,onFormSubmit}) => {
   const [selectbookname, setSelectBookname] = useState(name);
   const [selectauthorname, setSelectAuthorname] = useState(author);
