@@ -27,6 +27,7 @@ function BookCard({name,author,genre,url,id,onDeleteFunction}) {
   return (
     <div>
       <Card
+      margin="2"
   direction={{ base: 'column', sm: 'row' }}
   overflow='hidden'
   variant='outline'
