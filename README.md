@@ -23,6 +23,9 @@ Database - MongoDB
 -> Added Validations in email and password. Only proper email and password can be used rather than any garbage data.
 ![Screenshot from 2023-02-13 00-07-45](https://user-images.githubusercontent.com/30487756/218331386-32492de5-a29e-4c16-947a-194bfa7ef67f.png)
 
+-> If user enters wrong credentials then an alert message is displayed.
+![Screenshot from 2023-02-13 00-55-16](https://user-images.githubusercontent.com/30487756/218332591-a6aa23ec-b143-4808-b164-6bb3411003b4.png)
+
 -> After successfull login user redirects to dashboard with create, read, edit and delete functionality.
 ![Screenshot from 2023-02-13 00-18-47](https://user-images.githubusercontent.com/30487756/218331434-0f0718db-a442-4dbd-86b1-ac365070a1b9.png)
 
