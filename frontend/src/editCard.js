@@ -52,7 +52,8 @@ const EditCard = () => {
         genre={bookDetails.genre}
         url={bookDetails.url}
         id={bookDetails._id}
-        onEditFunction={editBookDetails}
+        onFormSubmit={editBookDetails}
+        type="Edit"
     />
   );
 };

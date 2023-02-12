@@ -3,7 +3,7 @@ import "./cardDetails.css";
 import { Input, FormLabel, FormControl, Button } from '@chakra-ui/react';
 import { useNavigate } from "react-router";
 
-const CardDetails = ({name,author,genre,url,onEditFunction}) => {
+const CardDetails = ({type,name,author,genre,url,onFormSubmit}) => {
   const [selectbookname, setSelectBookname] = useState(name);
   const [selectauthorname, setSelectAuthorname] = useState(author);
   const [selectgenre, setSelectGenre] = useState(genre);
@@ -58,12 +58,12 @@ const CardDetails = ({name,author,genre,url,onEditFunction}) => {
                 url:selecturl
             }
             console.log("onEdit",data)
-            onEditFunction(data);
+            onFormSubmit(data);
             navigate("/dashboard");
           }}
           type="submit"
         >
-          Edit
+          {type}
         </Button>
         <Button colorScheme="green" onClick={() => {navigate("/dashboard")} }>
           Cancel

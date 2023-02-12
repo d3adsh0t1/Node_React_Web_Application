@@ -6,7 +6,7 @@ import axios from "axios";
 const Dashboard = () => {
   const [bookDetails, setBookDetails] = useState([]);
   useEffect(() => {
-    console.log("useEffect");
+    // console.log("useEffect");
     const fetchData = async () => {
       try {
         const jwtToken = localStorage.getItem("authtoken");

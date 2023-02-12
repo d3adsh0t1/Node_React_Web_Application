@@ -22,7 +22,7 @@ const Header = () => {
   return (
     <header style={headerStyle}>
       <div style={headerContainer}>
-        <button style={leftButtonStyle}>Add Book</button>
+        <button onClick={() => {navigate("/addcard")}} style={leftButtonStyle}>Add Book</button>
         <h1 style={headerTitle}>Book List</h1>
         <button onClick={onLogout} style={rightButtonStyle}>Logout</button>
       </div>
