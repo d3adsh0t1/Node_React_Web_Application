@@ -94,14 +94,14 @@ router.delete('/book/:id',auth, async (req, res) => {
     const id = req.params.id
     try{
       const book = await Book.findOne({_id:id, owner:req.user._id})
-  
         if (!book) {
             res.status(404).send()
         }
-
-        res.send(book)
+        await Book.deleteOne({_id:id, owner:req.user._id})
+        res.status(200).send(book)
     } catch (e) {
         res.status(500).send()
     }
 })
+
 module.exports = router

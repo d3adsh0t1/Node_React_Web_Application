@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, CardBody, CardFooter, Image, Stack, Heading, Text } from '@chakra-ui/react';
+import axios from "axios";
 
-const onEdit = () => {
 
-}
-const onDelete = () => {
 
-}
+function BookCard({name,author,genre,url,id,onDeleteFunction}) {
+  const onEdit = () => {
 
-function BookCard({name,author,genre}) {
+  }
+  const onDelete = async () => {
+    try {
+      const jwtToken = localStorage.getItem("authtoken");
+      const response = await axios.delete(`http://localhost:8000/book/${id}`, {
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+      });
+      onDeleteFunction(response.data);
+      // console.log(response.data);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
 
   return (
     <div>
@@ -20,7 +33,7 @@ function BookCard({name,author,genre}) {
   <Image
     objectFit='cover'
     maxW={{ base: '100%', sm: '200px' }}
-    src='https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60'
+    src={url}
     alt='Caffe Latte'
   />
 
@@ -35,7 +48,7 @@ function BookCard({name,author,genre}) {
     </CardBody>
 
     <CardFooter>
-      <Button onClick={onEdit} variant='solid' colorScheme='blue'>
+      <Button mr="1" onClick={onEdit} variant='solid' colorScheme='blue'>
         Edit
       </Button>
       <Button onClick={onDelete} variant='solid' colorScheme='blue'>

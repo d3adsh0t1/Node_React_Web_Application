@@ -22,6 +22,11 @@ const Dashboard = () => {
     };
     fetchData();
   }, []);
+  
+  const updatedBookDetails = (data) => {
+    setBookDetails(bookDetails.filter(bookDetail => bookDetail._id !== data._id));
+  }
+
   return (
     <div>
       <Header />
@@ -31,6 +36,9 @@ const Dashboard = () => {
           name={item.name}
           author={item.author}
           genre={item.genre}
+          url={item.url}
+          id={item._id}
+          onDeleteFunction={updatedBookDetails}
         />;
       })}
     </div>
