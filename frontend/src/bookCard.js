@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button, Card, CardBody, CardFooter, Image, Stack, Heading, Text } from '@chakra-ui/react';
 import axios from "axios";
-
+import { useNavigate } from "react-router";
 
 
 function BookCard({name,author,genre,url,id,onDeleteFunction}) {
   const onEdit = () => {
-
+    navigate(`/editcard/${id}`);
   }
   const onDelete = async () => {
     try {
@@ -23,6 +23,7 @@ function BookCard({name,author,genre,url,id,onDeleteFunction}) {
     }
   }
 
+  const navigate = useNavigate();
   return (
     <div>
       <Card
