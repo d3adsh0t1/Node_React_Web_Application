@@ -22,13 +22,13 @@ const LoginPage = () => {
         if (isSignUp) {
         userDetails.firstname = firstname;
         userDetails.lastname = lastname;
-        console.log(userDetails);
+        //console.log(userDetails);
         response = await axios.post("http://localhost:8000/user/signup", userDetails);
         } else {
         response = await axios.post("http://localhost:8000/user/login", userDetails);
         }
         localStorage.setItem("authtoken",response.data.user.tokens[0].token)
-        console.log(localStorage.getItem("authtoken"));
+        //console.log(localStorage.getItem("authtoken"));
         navigate("/dashboard");
     }
     catch(err) {

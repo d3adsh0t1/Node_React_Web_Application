@@ -12,7 +12,7 @@ const Header = () => {
             "Authorization": `Bearer ${jwtToken}`
           }
         });
-        console.log(response);
+        // console.log(response);
         navigate("/login");
       } catch (error) {
         alert(error.message)
