@@ -53,7 +53,7 @@ const EditCard = () => {
         url={bookDetails.url}
         id={bookDetails._id}
         onFormSubmit={editBookDetails}
-        type="Edit"
+        type="Save"
     />
   );
 };

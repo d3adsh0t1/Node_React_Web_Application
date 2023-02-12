@@ -13,6 +13,7 @@ const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -66,7 +67,7 @@ const LoginPage = () => {
             </FormControl>
           </div>
         )}
-        <FormControl isRequired isInvalid={!validator.isEmail(username)} className="form-group">
+        <FormControl isRequired isInvalid={username && !validator.isEmail(username)} className="form-group">
           <FormLabel>Email:</FormLabel>
           <Input
             type="email"
@@ -75,7 +76,7 @@ const LoginPage = () => {
             onChange={(event) => setUsername(event.target.value)}
           />
         </FormControl>
-        <FormControl isInvalid={!validator.isLength(password,7,50)} isRequired className="form-group">
+        <FormControl isInvalid={password && !validator.isLength(password,7,50)} isRequired className="form-group">
           <FormLabel>Password:</FormLabel>
           <Input
             type="password"
