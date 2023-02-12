@@ -24,7 +24,7 @@ router.post('/book',auth,async(req,res)=>{
 // list all books created in database
 router.get('/books', auth,async(req,res)=>{
     try{
-        const{page=1,limit=2} = req.query
+        const{page=1,limit=20} = req.query
         const books = await Book.find({owner:req.user._id}).limit(limit*1).skip((page-1)*limit)
         res.status(201).send(books)
     }
