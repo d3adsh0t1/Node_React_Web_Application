@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-
+// Header for dashboard 
 const Header = () => {
     const onLogout = async () => {
       try {
         const jwtToken = localStorage.getItem("authtoken");
-        const response = await axios.post("http://localhost:8000/user/logout", { data: 'some data' }, {
+        await axios.post("http://localhost:8000/user/logout", { data: 'some data' }, {
           headers: {
             "Authorization": `Bearer ${jwtToken}`
           }

@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
-import CardDetails from "./cardDetails";
-import { useParams } from "react-router";
+import CardDetails from "../components/cardDetails";
 import { useNavigate } from "react-router";
 
+// Create Book card functionality
 const AddCard = () => {
-  let {id} = useParams();
   const navigate = useNavigate();
 
   const AddBookDetails = async (data) => {
     try {
         console.log(data);
         const jwtToken = localStorage.getItem("authtoken");
-        await axios.post(`http://localhost:8000/book`,data, {
+        await axios.post("http://localhost:8000/book",data, {
           headers: {
             Authorization: `Bearer ${jwtToken}`,
           },

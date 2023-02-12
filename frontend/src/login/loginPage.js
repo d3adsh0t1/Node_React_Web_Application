@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "./loginPage.css";
+import "../css/loginPage.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import validator from "validator";
 import { Input, FormLabel, FormControl, FormErrorMessage, Button } from '@chakra-ui/react';
 
+// login and signup functionality
 const LoginPage = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -33,7 +34,7 @@ const LoginPage = () => {
         navigate("/dashboard");
     }
     catch(err) {
-        alert(err.message)
+        alert("Please Check your Credentials");
     }
     finally {
         setIsLoading(false);
