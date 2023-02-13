@@ -5,8 +5,9 @@ import { useNavigate } from "react-router-dom";
 import validator from "validator";
 import { Input, FormLabel, FormControl, FormErrorMessage, Button } from '@chakra-ui/react';
 
-// login and signup functionality
+// LoginPage component
 const LoginPage = () => {
+  // State variables to store user input
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
@@ -14,23 +15,29 @@ const LoginPage = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-
+  // Function to handle user submit action
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
     try {
         const userDetails = { email: username, password: password };
         let response = [];
+
+        // Determine whether user wants to sign up or sign in
         if (isSignUp) {
-        userDetails.firstname = firstname;
-        userDetails.lastname = lastname;
-        //console.log(userDetails);
-        response = await axios.post("http://localhost:8000/user/signup", userDetails);
+          // sign up, include firstname and lastname in the request
+          userDetails.firstname = firstname;
+          userDetails.lastname = lastname;
+          response = await axios.post("http://localhost:8000/user/signup", userDetails);
         } else {
-        response = await axios.post("http://localhost:8000/user/login", userDetails);
+          // If sign in, only include email and password in the request
+          response = await axios.post("http://localhost:8000/user/login", userDetails);
         }
+
+        // Store the received token in local storage
         localStorage.setItem("authtoken",response.data.user.tokens[0].token)
-        //console.log(localStorage.getItem("authtoken"));
+
+        // Navigate to the dashboard
         navigate("/dashboard");
     }
     catch(err) {
@@ -40,6 +47,8 @@ const LoginPage = () => {
         setIsLoading(false);
     }
   };
+
+  // Navigate hook from react-router-dom
   const navigate = useNavigate();
 
   return (
